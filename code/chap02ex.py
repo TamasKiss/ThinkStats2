@@ -15,23 +15,27 @@ import thinkstats2
 
 
 def Mode(hist):
-    """Returns the value with the highest frequency.
-
-    hist: Hist object
-
-    returns: value from Hist
-    """
-    return 0
+    maxValue = 0
+    maxFreq = 0
+    
+    for value, freq in hist.Items():
+        if(freq > maxFreq):
+            maxValue = value
+            maxFreq = freq
+            
+    return maxValue
 
 
 def AllModes(hist):
-    """Returns value-freq pairs in decreasing order of frequency.
-
-    hist: Hist object
-
-    returns: iterator of value-freq pairs
-    """
-    return []
+    histAsList = []
+    
+    
+    for value, freq in hist.Items():
+        histAsList.append((value, freq))
+    
+    histAsList.sort(key = lambda x: x[1], reverse = True)
+    
+    return histAsList
 
 
 def main(script):

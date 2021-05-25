@@ -15,12 +15,11 @@ import thinkstats2
 
 
 def main(script):
-    """Tests the functions in this module.
-
-    script: string script name
-    """
-    print('%s: All tests passed.' % script)
-
-
+    preg = nsfg.ReadFemPreg()
+    
+    print(preg.pregnum.value_counts().sort_index())
+    
+    pregMap = nsfg.MakePregMap(preg)
+    
 if __name__ == '__main__':
     main(*sys.argv)
